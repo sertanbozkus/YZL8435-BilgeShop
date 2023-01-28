@@ -11,11 +11,6 @@ https://stackedit.io/
 
 Merhaba, Bilgeadam Akademi bünyesinde gerçekleştirilen YZL8435 sınıfının .Net Web Programlama eğitim sürecinde uygulanan proje örneği.
 
-
-## Kurulum
-
-Projenin çalışabilmesi için, bilgisayarınız .Net 6 sürümünün kurulu olması gerekiyor.
-
 ## Süreç
 
 Eğitmen gözetiminde, eğitmen desteğiyle yaklaşık 80 Saat süresinde, tamamlandı.
@@ -27,3 +22,8 @@ Katmanlı Mimari - Yönetim Paneli - Yetkilendirme - Claim Prensipleri
 ## Teknolojiler
 
 .Net 6 c# - EntityFramework Core - Html - Css - Bootstrap - Javascript - Jquery
+
+
+## Kurulum
+
+Projenin çalışabilmesi için, bilgisayarınız .Net 6 sürümünün kurulu olması gerekiyor.
