@@ -1,0 +1,129 @@
+﻿@using BilgeShop.WebUI.Extensions
+<html>
+<head>
+
+    <meta name="description" content="Örnek bir MVC 6 Projesi">
+    <meta name="keywords" content="MVC6, BilgeAdam, EFCore">
+    <meta name="author" content="Sertan Bozkuş">
+
+    <title>BilgeShop | YZL8435</title>
+
+    <partial name="_StylesPartial"></partial>
+
+    <style>
+
+        label.required:after {
+            content: "*\00a0";
+            color: red;
+            margin-left: 2px;
+        }
+
+    </style>
+
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none fw-bold">
+                    BILGESHOP
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-5">
+
+                    <li><a href="/" class="nav-link px-2 text-white">Ana Sayfa</a></li>
+
+                </ul>
+
+
+                @if (!User.IsLogged())
+                {
+                    <div id="login" class="d-none">
+                        @*sayfa ilk açıldığında gizli tutuyorum*@
+                        <partial name="_LoginPartial" model="new LoginViewModel()"></partial>
+                    </div>
+
+                    <div id="welcome" class="text-end">
+                        <button id="btnGirisYap" type="button" class="btn btn-outline-light me-2">Giriş</button>
+                        <a asp-controller="Auth" asp-action="Register" class="btn btn-warning">Kayıt Ol</a>
+                    </div>
+                }
+                else
+                {
+                    var firstName = User.GetFirstName();
+                    var lastName = User.GetLastName();
+
+                    <div class="d-flex">
+
+                        <div class="mt-2">Hoş Geldiniz @firstName @lastName </div>
+
+
+                        @if (User.IsAdmin())
+                        {
+                            <div class="ms-3 text-white mt-1">
+                                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-danger">Yönetim Paneli</a>
+                            </div>
+                        }
+
+                        <div class="ms-3 mt-1 text-white">
+                            <a class="btn btn-outline-warning" asp-controller="Account" asp-action="Index">
+
+                              <i class="bi bi-person-circle"></i> Profil Güncelle
+
+                            </a>
+
+                        </div>
+
+                        <div class="ms-3 mt-1 text-white">
+                            <a asp-controller="Auth" asp-action="Logout" class="btn btn-outline-warning">
+                                <i class="bi bi-door-closed-fill"></i>  Çıkış Yap
+                            </a>
+                            </div>
+
+
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </header>
+
+
+    @RenderBody()
+
+
+    <footer class="py-5 bg-dark text-white text-center mt-3 mt-auto">
+        YZL8435 | BilgeShop
+        <hr />
+        <p class="text-secondary">Tüm Hakları Sertan Bozkuş'a aittir.</p>
+    </footer>
+
+   <partial name="_ScriptsPartial"></partial>
+
+   <script>
+        $('#btnGirisYap').click(function() {
+            $('#welcome').addClass('d-none');
+            $('#login').removeClass('d-none');
+
+        })
+
+        $('#btnGirisIptal').click(function() {
+            $('#welcome').removeClass('d-none');
+            $('#login').addClass('d-none');
+
+        })
+
+        @if (!string.IsNullOrWhiteSpace(TempData["LoginMessage"]?.ToString()))
+        {
+            @:toastr.error("@TempData["LoginMessage"]?.ToString()");
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

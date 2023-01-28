@@ -1,0 +1,28 @@
+﻿<div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Alışveriş Sitesi</h1>
+        <p style="color:firebrick ; font-weight:bold">Ajda Pekkan'da buradan alıyor.</p>
+    
+      </div>
+    </div>
+
+       <div class="container">
+
+           <div class="row">
+
+               <div class="col-md-3">
+                       <vc:categories></vc:categories>
+                       
+               </div>
+
+
+               <div class="col-md-9">
+                   <vc:products category-id="@ViewBag.CategoryId"></vc:products>
+                   @*camelCasing olarak parmatreyi kabul etmiyor, boşluk yerine Büyük harf değil de , "-" kullanılacak.*@
+               </div>
+
+           </div>
+
+
+       </div>
+

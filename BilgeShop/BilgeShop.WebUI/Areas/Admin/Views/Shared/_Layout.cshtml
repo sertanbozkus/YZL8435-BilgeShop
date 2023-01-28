@@ -1,0 +1,34 @@
+﻿<html>
+<head>
+
+    <title>Bilgeshop | Yönetim</title>
+
+    <partial name="_StylesPartial"></partial>
+
+</head>
+<body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                
+                <span class="fs-4">BilgeShop | Yönetim Paneli</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a asp-area="Admin" asp-controller="Category" asp-action="List" class="nav-link">Kategoriler</a></li>
+                <li class="nav-item"><a asp-area="Admin" asp-controller="Product" asp-action="List" class="nav-link">Ürünler</a></li>
+            </ul>
+        </header>
+    </div>
+    @RenderBody()
+
+
+    <partial name="_ScriptsPartial"></partial>
+    
+
+    @await RenderSectionAsync("Scripts" , required:false);
+
+
+</body>
+</html>

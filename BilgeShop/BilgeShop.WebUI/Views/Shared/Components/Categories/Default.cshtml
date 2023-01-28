@@ -1,0 +1,24 @@
+﻿@model List<CategoryViewModel>
+
+    <div class="list-group"> 
+
+        <a class="list-group-item list-group-item-action asp-controller="Home" asp-action="Index" asp-route-categoryId="" asp-route-categoryName="">
+            Tüm Ürünler
+        </a>
+
+
+        @foreach (var category in Model)
+    {
+        <a class="list-group-item list-group-item-action" asp-controller="Home" asp-action="Index" asp-route-categoryId="@category.Id" asp-route-categoryName="@category.Name">
+            @category.Name
+        </a>
+
+    }
+
+
+
+
+
+
+    </div>
+
