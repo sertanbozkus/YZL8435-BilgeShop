@@ -2,7 +2,7 @@
 Yzl8435 Hafta sonu grubu için yaptığım örnek MVC(core6) projesi.
 
 
-**MARKDOWN İÇİN KAYNAK SİTELER:**
+**MARKDOWN İÇİN KAYNAK SİTELER:** <br>
 https://www.markdownguide.org/ <br>
 https://stackedit.io/
 
